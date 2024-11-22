@@ -56,7 +56,7 @@ namespace Functions
         }
         internal string Vraag7()
         {
-            Console.WriteLine("Wat is jouw duurste miskoop");
+            Console.WriteLine("Wie heeft de slechste haarlijn?");
             string antwoord = Console.ReadLine();
 
             return antwoord;
