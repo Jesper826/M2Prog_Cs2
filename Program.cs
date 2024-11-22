@@ -18,11 +18,11 @@
 
         }
 
-        internal void Vraag1() 
-        { 
+        internal void Vraag1()
+        {
             Console.WriteLine("How long do you think you'd survive in a zombie apocalypse?");
             string antwoord = Console.ReadLine();
-            Console.WriteLine(antwoord); 
+            Console.WriteLine(antwoord);
         }
         internal void Vraag2()
         {
@@ -48,6 +48,17 @@
             string antwoord = Console.ReadLine();
             Console.WriteLine(antwoord);
         }
+        internal string Vraag7()
+        {
+            Console.WriteLine("Wat is jouw duurste miskoop");
+            string antwoord = Console.ReadLine();
+
+            return antwoord;
+            string antwoord7 = Vraag7();
+            Console.WriteLine(antwoord7);
+        }
+        
+            
     }
 }
 
