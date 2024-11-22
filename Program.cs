@@ -1,7 +1,13 @@
-﻿namespace Functions
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace Functions
 {
     internal class Program
     {
+        string[] vragen = new string[] {
+            "What 1997 n64 video game, features James Bond and is named after the 1995 film?",
+            "What arcade game was called puckman in Japan?"
+        };
         static void Main(string[] args)
         {
             Program program = new Program(); // Een object van de Program-klasse maken //variabele Program met als type program
@@ -15,7 +21,7 @@
             Vraag3();
             Vraag4();
             Vraag5();
-
+            
         }
 
         internal void Vraag1()
@@ -54,9 +60,23 @@
             string antwoord = Console.ReadLine();
 
             return antwoord;
-            string antwoord7 = Vraag7();
-            Console.WriteLine(antwoord7);
+            
         }
+
+
+            internal string GetVraag(int vraagIndex)
+        {
+            return vragen[vraagIndex];
+            string vraag0 = GetVraag(0);
+        }
+        internal string GetRandomVraag()
+        {
+            Random r = new Random();
+            int rInt = r.Next(0, vragen.Length);
+            return vragen[rInt];
+        }
+            
+
         
             
     }
