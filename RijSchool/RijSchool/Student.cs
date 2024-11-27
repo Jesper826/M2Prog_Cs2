@@ -11,7 +11,8 @@ namespace RijSchool
         internal string naam;
         internal int leeftijd;
         internal LesPakket lesPakket;
-        internal RijLeraar leraar;
+        internal RijLeraar rijleraar;
+        internal TheorieTest theorieTest;
         internal RijTest rijTest;
     }
 }
