@@ -10,5 +10,10 @@ namespace Constructers
     {
         internal QuizVraag[] vragen;
         internal QuizVraagAntwoord[] IngevuldeAntwoorden;
+        internal Quiz(int aantalVragen)
+        {
+            vragen = new QuizVraag[aantalVragen];
+            IngevuldeAntwoorden = new QuizVraagAntwoord[aantalVragen];
+        }
     }
 }

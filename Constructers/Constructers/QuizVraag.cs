@@ -11,7 +11,6 @@ namespace Constructers
     {
         internal string vraag;
         internal string antwoord;
-
         
         internal QuizVraag(string vraag, string antwoord)
         {
