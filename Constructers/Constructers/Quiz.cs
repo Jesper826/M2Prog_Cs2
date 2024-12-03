@@ -1,19 +1,46 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Constructers;
 
-namespace Constructers
+namespace Constructors;
+
+public class Quiz
 {
-    class Quiz
+    internal QuizVraag[] vragen;
+    internal QuizVraagAntwoord[] ingevuldeAntwoorden;
+    internal int score;
+
+    internal Quiz(int aantalVragen)
     {
-        internal QuizVraag[] vragen;
-        internal QuizVraagAntwoord[] IngevuldeAntwoorden;
-        internal Quiz(int aantalVragen)
+        vragen = new QuizVraag[aantalVragen];
+        ingevuldeAntwoorden = new QuizVraagAntwoord[aantalVragen];
+    }
+
+    internal void VoegVraagToeOpIndex(int index, QuizVraag vraag)
+    {
+        vragen[index] = vraag;
+    }
+
+    internal void StelVraag(int index)
+    {
+        QuizVraag vraag = vragen[index];
+        QuizVraagAntwoord quizVraagAntwoord = new QuizVraagAntwoord(vraag);
+
+        Console.WriteLine(vraag.vraag);
+
+        if (Console.ReadLine().ToLower() == vraag.antwoord.ToLower())
         {
-            vragen = new QuizVraag[aantalVragen];
-            IngevuldeAntwoorden = new QuizVraagAntwoord[aantalVragen];
+            quizVraagAntwoord.goed = true;
+            Console.WriteLine("goed");
+            Score(1);
         }
+        else
+        {
+            quizVraagAntwoord.goed = false;
+            Console.WriteLine("fout");
+        }
+    }
+
+    internal void Score(int add)
+    {
+        score += add;
     }
 }

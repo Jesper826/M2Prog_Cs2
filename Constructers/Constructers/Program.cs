@@ -1,4 +1,5 @@
-﻿using System.Runtime.CompilerServices;
+﻿using Constructors;
+using System.Runtime.CompilerServices;
 
 namespace Constructers
 {
@@ -8,7 +9,9 @@ namespace Constructers
         {
             Console.WriteLine("Hello, World!");
             Program program = new Program();
+            Quiz quiz = new Quiz(10);
             program.Run();
+            
         }
         internal void Run()
         {
