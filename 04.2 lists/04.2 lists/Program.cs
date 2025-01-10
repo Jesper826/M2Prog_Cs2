@@ -5,6 +5,13 @@ namespace Lists
 {
     class Program
     {
+        // Pickup-class
+        class Pickup
+        {
+            public string Name { get; set; }
+            public bool IsCollected { get; set; }
+        }
+
         static void Main(string[] args)
         {
             string[] characters = {
@@ -31,8 +38,7 @@ namespace Lists
 
             List<string> characterList = new List<string>();
             characterList.Add("Toad");
-
-            Console.WriteLine("\nCharacters in characterList:");
+;
             foreach (string character in characterList)
             {
                 Console.WriteLine(character);
@@ -64,6 +70,35 @@ namespace Lists
             foreach (double review in reviews)
             {
                 Console.WriteLine(review);
+            }
+
+            List<Pickup> pickups = new List<Pickup>();
+
+            for (int i = 0; i < 10; i++)
+            {
+                pickups.Add(new Pickup { Name = $"Pickup {i}", IsCollected = false });
+            }
+
+            Console.WriteLine("\nAlle pickups:");
+            foreach (Pickup pickup in pickups)
+            {
+                Console.WriteLine($"{pickup.Name} is still there");
+            }
+
+            Console.WriteLine("\nVerwijderen van Pickup 4:");
+            for (int i = pickups.Count - 1; i >= 0; i--)
+            {
+                if (pickups[i].Name == "Pickup 4")
+                {
+                    pickups.RemoveAt(i);
+                    Console.WriteLine("removed Pickup 4");
+                }
+            }
+
+            Console.WriteLine("\nResterende pickups:");
+            foreach (Pickup pickup in pickups)
+            {
+                Console.WriteLine($"{pickup.Name} is still there");
             }
         }
     }
