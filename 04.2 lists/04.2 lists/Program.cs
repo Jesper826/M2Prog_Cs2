@@ -56,7 +56,7 @@ namespace Lists
             }
 
             List<string> characterList = new List<string>();
-            characterList.Add("Toad");
+            characterList.Add("Bram zijn haarlijn....... O NEE DIE IS ZOEK");
 
             foreach (string character in characterList)
             {
