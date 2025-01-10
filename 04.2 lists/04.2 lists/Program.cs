@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;  // Vergeet niet LINQ te gebruiken
 
 namespace Lists
 {
@@ -12,8 +13,26 @@ namespace Lists
             public bool IsCollected { get; set; }
         }
 
+        // Mob-class
+        class Mob
+        {
+            public string Name { get; set; }
+            public int Hp { get; set; }
+            public bool IsDead { get; set; }
+
+            public void TakeDamage(int damage)
+            {
+                Hp -= damage;
+                if (Hp <= 0)
+                {
+                    IsDead = true;
+                }
+            }
+        }
+
         static void Main(string[] args)
         {
+            // Gamepersonages
             string[] characters = {
                 "Pac-Man",
                 "Samus",
@@ -38,7 +57,7 @@ namespace Lists
 
             List<string> characterList = new List<string>();
             characterList.Add("Toad");
-;
+
             foreach (string character in characterList)
             {
                 Console.WriteLine(character);
@@ -99,6 +118,36 @@ namespace Lists
             foreach (Pickup pickup in pickups)
             {
                 Console.WriteLine($"{pickup.Name} is still there");
+            }
+
+            List<Mob> mobs = new List<Mob>
+            {
+                new Mob { Name = "Mob1", Hp = 100, IsDead = false },
+                new Mob { Name = "Mob2", Hp = 100, IsDead = false },
+                new Mob { Name = "Mob3", Hp = 100, IsDead = false }
+            };
+
+            Random random = new Random();
+
+            for (int i = 0; i < 100; i++)
+            {
+                foreach (var mob in mobs)
+                {
+                    int damage = random.Next(1, 101);
+
+                    if (damage < 30)
+                    {
+                        mob.TakeDamage(1);
+                    }
+                }
+            }
+
+            var defeatedMobs = mobs.Where(mob => mob.IsDead).ToList();
+
+            Console.WriteLine("\nVerslagen mobs:");
+            foreach (var mob in mobs)
+            {
+                Console.WriteLine($"{mob} is verslagen!");
             }
         }
     }
