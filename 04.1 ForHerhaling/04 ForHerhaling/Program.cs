@@ -20,7 +20,7 @@ namespace ArrayOpdracht
             formulieren[1] = new Formulier()
             {
                 Sterren = 3,
-                Feedback = "Eten was prima, maar het duurde te lang."
+                Feedback = "Het duurde te lang voordat ik me eten kreeg."
             };
 
             for (int i = 0; i < prijzen.Length; i++)
