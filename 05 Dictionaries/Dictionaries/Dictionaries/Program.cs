@@ -7,7 +7,7 @@ namespace RoomDictionaryExample
     {
         public string Name { get; set; }
         public string Description { get; set; }
-        public string[] Layout { get; set; } // ASCII layout of the room
+        public string[] Layout { get; set; } 
 
         public Room(string name, string description, string[] layout)
         {
@@ -16,7 +16,7 @@ namespace RoomDictionaryExample
             Layout = layout;
         }
 
-        // Generate a key based on coordinates
+      
         internal string GetRoomLocationKey(int x, int y)
         {
             return $"{x},{y}";
@@ -25,12 +25,12 @@ namespace RoomDictionaryExample
 
     class Program
     {
-        // Dictionary to store rooms
+        
         private static Dictionary<string, Room> rooms = new Dictionary<string, Room>();
 
         static void Main(string[] args)
         {
-            // Add the start room
+           
             Room startRoom = new Room(
                 "Start Room",
                 "This is the starting room.",
@@ -43,7 +43,7 @@ namespace RoomDictionaryExample
                 });
             rooms.Add(startRoom.GetRoomLocationKey(0, 0), startRoom);
 
-            // Add more rooms
+            
             Room room1 = new Room(
                 "Room 1",
                 "This is another room.",
@@ -80,16 +80,14 @@ namespace RoomDictionaryExample
                 });
             rooms.Add(room3.GetRoomLocationKey(1, 1), room3);
 
-            // Show all rooms
-            ShowRoom(0, 1); // Room 2
-            ShowRoom(1, 1); // Room 3
-            ShowRoom(1, 0); // Room 1
-
-            // Attempt to show a room that doesn't exist
-            ShowRoom(2, 2); // Error case
+          
+            ShowRoom(0, 1);
+            ShowRoom(1, 1); 
+            ShowRoom(1, 0);  
+            ShowRoom(2, 2);
         }
 
-        // Function to show a room based on its coordinates
+      
         private static void ShowRoom(int x, int y)
         {
             string key = $"{x},{y}";
@@ -98,13 +96,11 @@ namespace RoomDictionaryExample
             {
                 Room room = rooms[key];
 
-                // Display the room layout
                 foreach (string line in room.Layout)
                 {
                     Console.WriteLine(line);
                 }
 
-                // Display room details
                 Console.WriteLine($"You are in {room.Name}");
             }
             else
@@ -112,7 +108,7 @@ namespace RoomDictionaryExample
                 Console.WriteLine("Error room does not exist");
             }
 
-            Console.WriteLine(); // Add space between rooms
+            Console.WriteLine(); 
         }
     }
 }
