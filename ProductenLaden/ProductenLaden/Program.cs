@@ -8,26 +8,37 @@ namespace ProductenLaden
         {
             Program program = new Program();
             program.Run();
+            program.RunProducten();
+            program.koekies();
         }
 
-        static void Main2(string[] args)
+        internal void koekies()
         {
-            Program program = new Program();
-            program.RunProducten();
-        }
+            string text = File.ReadAllText("koek.json");
+            Koek[] koek = JsonSerializer.Deserialize<Koek[]>(text);
+
+
+
+            for (int i = 0; i < koek.Length; i++)
+            {
+                Console.WriteLine(koek[i].name);
+                Console.WriteLine(koek[i].description);
+                Console.WriteLine(koek[i].stars);
+            }
+        }   
 
         internal void RunProducten() 
         {
             string text = File.ReadAllText("Producten.json");
             Product[] product = JsonSerializer.Deserialize<Product[]>(text);
 
-            Console.WriteLine(product.Name);
-            Console.WriteLine(product.Description);
-            Console.WriteLine(product.Price);
+            
 
-            for (int i = 0; i < 10; i++) 
+            for (int i = 0; i < product.Length; i++) 
             {
-                Console.WriteLine("");
+                Console.WriteLine(product[i].Name);
+                Console.WriteLine(product[i].Description);
+                Console.WriteLine(product[i].Price);
             }
 
         }
